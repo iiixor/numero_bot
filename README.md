@@ -1,2 +1,2 @@
-# delpy_bot
-Repository for Delpy Studio developers
+# numero_bot
+Repository of numero_bot

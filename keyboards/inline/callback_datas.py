@@ -15,4 +15,6 @@ review_callback = CallbackData("review", "platform")
 
 price_callback = CallbackData("price", "type")
 
+skills_callback = CallbackData('skill', 'type')
+
 # то же почти везде копи-паст)))))
