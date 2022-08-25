@@ -13,7 +13,7 @@ poll_callback = CallbackData("poll", "platform")
 
 review_callback = CallbackData("review", "platform")
 
-price_callback = CallbackData("price", "type")
+choice_callback = CallbackData("price", "type")
 
 skills_callback = CallbackData('skill', 'type')
 

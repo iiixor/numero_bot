@@ -8,8 +8,10 @@ menu = ReplyKeyboardMarkup(
     keyboard=[
         [
             KeyboardButton(text=f'Посмотреть квадрат пифагора ⚛️'),
-            KeyboardButton(text=f'Посмотреть гороскоп ☯️')
         ],
+        [
+            KeyboardButton(text=f'Посмотреть гороскоп ☯️')
+        ]
         # [
             # KeyboardButton(text=f'Поменять язык {emoji_ruflag}'),
             # KeyboardButton(text=f'Пройти опрос {emoji_paper_pen}'),

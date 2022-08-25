@@ -51,23 +51,23 @@ def get_skill_from_parsing(days, months, years, skill_number):
 
     all_skills = {}
 
-    character = values_2[0:5] #характер
-    energy = values_2[5:10] #энергия
-    interest  = values_2[10:11] #интерес
-    health  = values_2[11:12] #здоровье
-    logic = values_2[12:13] #логика, интуиция
-    labour = values_2[13:14] #труд
-    luck = values_2[14:15] #удача
-    duty = values_2[15:16] #чувство долга
-    memory = values_2[16:17] #память
-    сommitment = values_2[18:21] #целеустремленность
-    family = values_2[21:24] #семья
-    stability = values_2[24:27] #стабильность
-    self_esteem = values_2[27:30] #самоценка
-    material_independence = values_2[30:33] #материальная независимость
-    talant =  values_2[33:41] #талант
-    tempepament = values_2[41:44] #темеперамент
-    spirit = values_2[44:50] #духовность
+    character = values_2[0:5] #Характер
+    energy = values_2[5:10] #Энергия
+    interest  = values_2[10:11] #Интерес
+    health  = values_2[11:12] #Здоровье
+    logic = values_2[12:13] #Логика, Интуиция
+    labour = values_2[13:14] #Труд
+    luck = values_2[14:15] #Удача
+    duty = values_2[15:16] #Чувство долга
+    memory = values_2[16:17] #Память
+    сommitment = values_2[18:21] #Целеустремленность
+    family = values_2[21:24] #Семья
+    stability = values_2[24:27] #Стабильность
+    self_esteem = values_2[27:30] #Самоценка
+    material_independence = values_2[30:33] #Материальная независимость
+    talant =  values_2[33:41] #Талант
+    tempepament = values_2[41:44] #Темеперамент
+    spirit = values_2[44:50] #Духовность
 
     all_skills['1'] = character
     all_skills['2'] = energy

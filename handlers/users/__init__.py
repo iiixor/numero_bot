@@ -1,6 +1,8 @@
 from .help import dp
 from .start import dp
+from .get_zodiacs import dp
 from .get_pifagor_square import dp
+# from .get_zodiacs import dp
 # from .get_skill import dp
 # from .testing import dp
 # from .info import dp

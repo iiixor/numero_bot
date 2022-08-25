@@ -6,17 +6,21 @@ from keyboards.inline.inline_switсh_language import *
 from keyboards.inline.callback_datas import *
 from filters.emoji import *
 from parsing_data.parsing_main import *
+from keyboards.default import aditional_numerology
 
 
 # @dp.message_handler ловит только сообщение 'Получить информацию'
 @dp.message_handler(text=f'Посмотреть квадрат пифагора ⚛️')
 async def bot_data_request(message: types.Message):
-    text = f'Введите дату рождения в формате:\n День.Месяц.Год \n <i>Например: 29.05.1980</i>'
+    text = f'Введите дату рождения в формате:\n\n<b>День.Месяц.Год</b>\n\n<i>Например: 29.05.1980</i>'
     # в переменную photo присваиваем фото(как абсолютный путь), которое в дальнешем будем отправлять
     # методом message.answer_photo отправляем фото и передаем туда photo
     # методом message.answer отправляем текст и передаем туда text
     await message.answer(text)
     # await bot.delete_message(message.chat.id, message.message_id)
+
+
+
 
 @dp.message_handler()
 async def bot_pif_square(message: types.Message):
@@ -28,22 +32,26 @@ async def bot_pif_square(message: types.Message):
     text = ''
     for item in get_pifagor(days, months, years):
         text = text + f'{item}' + '\n'
-    await message.answer('Формирую квадрат Пифагора...')
     await message.answer(text)
-    await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+    # await message.answer('Хотите получить данные по показателям?', reply_markup=choice_buttons)
+
+    
+    await message.answer('Выберете один из показателей:', reply_markup=aditional_numerology)
 
 
-    @dp.callback_query_handler(skills_callback.filter(type='character'))
-    async def bot_get_skill(call: CallbackQuery):
+    @dp.message_handler(text=f'Характер')
+    async def bot_data_request(message: types.Message,days, months, years):
+        print(message.text)
         for item in get_skill_from_parsing(days, months, years, '1'):
             await message.answer(item)
-        # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
 
 
     @dp.callback_query_handler(skills_callback.filter(type='energy'))
-    async def bot_get_skill(call: CallbackQuery):
+    async def bot_get_energy(call: CallbackQuery):
         for item in get_skill_from_parsing(days, months, years, '2'):
             await message.answer(item)
+            # await bot.delete_message(message.chat.id, message.message_id)
         # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
 
     @dp.callback_query_handler(skills_callback.filter(type='interest'))
@@ -58,7 +66,6 @@ async def bot_pif_square(message: types.Message):
         # await bot.delete_message(message.chat.id, message.message_id)
         for item in get_skill_from_parsing(days, months, years, '4'):
             await message.answer(item)
-
 
     @dp.callback_query_handler(skills_callback.filter(type='logic'))
     async def bot_get_skill(call: CallbackQuery):
@@ -81,7 +88,8 @@ async def bot_pif_square(message: types.Message):
     @dp.callback_query_handler(skills_callback.filter(type='duty'))
     async def bot_get_skill(call: CallbackQuery):
         for item in get_skill_from_parsing(days, months, years, '8'):
-            await message.answer(item) 
+            await message.answer(item)
+
 
 
     @dp.callback_query_handler(skills_callback.filter(type='memory'))
@@ -137,14 +145,14 @@ async def bot_pif_square(message: types.Message):
         for item in get_skill_from_parsing(days, months, years, '17'):
             await message.answer(item) 
 
-# @dp.callback_query_handler(skills_callback.filter(type='character'))
-# async def bot_get_skill(call: CallbackQuery):
-#     days = bot_pif_square()
-#     print(days)
-        # for item in get_skill(days, months, years, '1'):
+    # @dp.callback_query_handler(skills_callback.filter(type='character'))
+    # async def bot_get_skill(call: CallbackQuery):
+    #     days = bot_pif_square()
+    #     print(days)
+            # for item in get_skill(days, months, years, '1'):
+            #     await message.answer(item)
+        # text = ''
+        # for item in get_skill(days, months, years, '4'):
+        #     text = text + f'{item}' + '\n'
         #     await message.answer(item)
-    # text = ''
-    # for item in get_skill(days, months, years, '4'):
-    #     text = text + f'{item}' + '\n'
-    #     await message.answer(item)
-    # await message.answer(text)
+        # await message.answer(text)

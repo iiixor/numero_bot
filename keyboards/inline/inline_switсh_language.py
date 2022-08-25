@@ -68,12 +68,12 @@ review_buttons = InlineKeyboardMarkup(row_width=1, inline_keyboard=[
 )
 
 
-price_buttons = InlineKeyboardMarkup(row_width=2, inline_keyboard=[
+choice_buttons = InlineKeyboardMarkup(row_width=2, inline_keyboard=[
         [
-            InlineKeyboardButton(text=f'Разработка Telegram ботов {emoji_robot}', callback_data=price_callback.new(type='TG_Bots'))
+            InlineKeyboardButton(text=f'Да', callback_data=choice_callback.new(type='yes'))
         ],
         [
-            InlineKeyboardButton(text=f'Работа с API Google Sheets {emoji_statistics}', callback_data="price:ggsh_api")
+            InlineKeyboardButton(text=f'Нет', callback_data="choice:no")
         ]
     ]
 )
