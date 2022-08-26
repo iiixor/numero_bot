@@ -9,6 +9,6 @@ def get_today_horoscope(sign):
 
     block = soup.find('div', class_ = 'article__text')
 
-    print(block.text)
+    # print(block.text)
 
     return block.text

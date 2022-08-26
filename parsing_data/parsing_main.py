@@ -4,6 +4,12 @@ def get_pifagor(days, months, years):
     from bs4 import BeautifulSoup
     # import grequests
 
+    if days[0] == '0':
+        days = days[1]
+
+    if months[0] == '0':
+        months = months[1]
+
 
     # days = input('Введите день?\n')
     # months = input('Введите месяц?\n')
@@ -16,8 +22,12 @@ def get_pifagor(days, months, years):
     block = soup.find('div', class_ = 'pythagoras-square-table')
 
     values = block.find_all('td')
+    title = soup.find('div', class_ = 'pythagoras-square-title')
+    title = title.text
 
     values_in_tg = []
+    values_in_tg.append(f'<b>{title}</b>\n')
+
     for value in values:
 
         skill = value.find('b').text
@@ -27,12 +37,35 @@ def get_pifagor(days, months, years):
 
     # print('')
 
+    with open("parsing_data/date.txt",'w') as f:
+        f.write(f'{days}\n')
+        f.write(f'{months}\n')
+        f.write(f'{years}\n')
+
+
+
     return values_in_tg
 
-def get_skill_from_parsing(days, months, years, skill_number):
+def get_skill_from_parsing(skill_number):
     import requests
     import fake_useragent
     from bs4 import BeautifulSoup
+
+    with open("parsing_data/date.txt",'r') as f:
+        days = f.readline()
+        months = f.readline()
+        years = f.readline()
+        
+    days = days.replace('\n','')
+    days = days.replace(',','')
+    months = months.replace('\n','')
+    months = months.replace(',','')
+    years = years.replace('\n','')
+    years = years.replace(',','')
+
+
+    # print(f'{days},{months},{years}')
+
 
     link = f"https://v-kosmose.com/numerologiya/kvadrat-pifagora/?days={days}&month={months}&years={years}"
     responce = requests.get(link).text
@@ -109,12 +142,12 @@ def get_skill_from_parsing(days, months, years, skill_number):
     "17 - Духовность"
     ]
 
-    print('Выберете показатель:\n')
-    print('\n'.join(choise))
+    # print('Выберете показатель:\n')
+    # print('\n'.join(choise))
 
     # choise_done = input('\nВведите цифру:')
 
-    print('\n')
+    # print('\n')
 
     # for item in spirit:
     #     print(f'{item.text}\n')
@@ -133,6 +166,6 @@ def get_skill_from_parsing(days, months, years, skill_number):
 
     # print(all_skills[choise_done])
 
-    print(items_for_tg)
+    # print(items_for_tg)
 
     return items_for_tg

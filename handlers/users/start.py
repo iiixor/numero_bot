@@ -15,10 +15,12 @@ async def bot_start(message: types.Message):
     # при вводе /start также появляется menu с кнпоками, благодаря
     # reply_markup=menu
     # menu указывается в keyboards->default->menu
+    # gif = 'media/space.gif'
     text = [
     f'Здравствуйте, {message.from_user.full_name} 👋',
     f'Рады приветсвовать вас в <i>нумерологическом боте</i>!',
     ]
+    # await message.answer_animation(types.InputFile(gif))
     await message.answer('\n'.join(text), reply_markup=menu)
 
 
@@ -26,3 +28,4 @@ async def bot_start(message: types.Message):
 # async def bot_delete(message: types.Message):
 #     if message.from_user.id == (await bot.me).id:
 #         await message.delete()
+    

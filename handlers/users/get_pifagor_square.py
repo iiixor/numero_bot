@@ -20,6 +20,139 @@ async def bot_data_request(message: types.Message):
     # await bot.delete_message(message.chat.id, message.message_id)
 
 
+@dp.message_handler(text=f'Характер')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('1'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Энергия')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('2'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+@dp.message_handler(text=f'Интерес')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('3'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Здоровье')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('4'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Логика, Интуиция')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('5'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Труд')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('6'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Удача')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('7'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Чувство долга')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('8'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Память')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('9'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+@dp.message_handler(text=f'Целеустремленность')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('10'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Семья')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('11'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Стабильность')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('12'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Самоценка')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('13'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Материальная независимость')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('14'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Талант')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('15'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Темеперамент')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('16'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
+
+@dp.message_handler(text=f'Духовность')
+async def bot_data_request(message: types.Message):
+    print(message.text)
+    for item in get_skill_from_parsing('17'):
+        await message.answer(item)
+    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
+
 
 
 @dp.message_handler()
@@ -39,111 +172,7 @@ async def bot_pif_square(message: types.Message):
     await message.answer('Выберете один из показателей:', reply_markup=aditional_numerology)
 
 
-    @dp.message_handler(text=f'Характер')
-    async def bot_data_request(message: types.Message,days, months, years):
-        print(message.text)
-        for item in get_skill_from_parsing(days, months, years, '1'):
-            await message.answer(item)
-    # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
 
-
-    @dp.callback_query_handler(skills_callback.filter(type='energy'))
-    async def bot_get_energy(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '2'):
-            await message.answer(item)
-            # await bot.delete_message(message.chat.id, message.message_id)
-        # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
-
-    @dp.callback_query_handler(skills_callback.filter(type='interest'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '3'):
-            await message.answer(item)
-
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='health'))
-    async def bot_get_skill(call: CallbackQuery):
-        # await bot.delete_message(message.chat.id, message.message_id)
-        for item in get_skill_from_parsing(days, months, years, '4'):
-            await message.answer(item)
-
-    @dp.callback_query_handler(skills_callback.filter(type='logic'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '5'):
-            await message.answer(item)
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='labour'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '6'):
-            await message.answer(item)
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='luck'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '7'):
-            await message.answer(item)          
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='duty'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '8'):
-            await message.answer(item)
-
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='memory'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '9'):
-            await message.answer(item) 
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='сommitment'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '10'):
-            await message.answer(item) 
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='family'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '11'):
-            await message.answer(item) 
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='stability'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '12'):
-            await message.answer(item) 
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='self_esteem'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '13'):
-            await message.answer(item) 
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='material_independence'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '14'):
-            await message.answer(item) 
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='talant'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '15'):
-            await message.answer(item) 
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='tempepament'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '16'):
-            await message.answer(item) 
-
-
-    @dp.callback_query_handler(skills_callback.filter(type='spirit'))
-    async def bot_get_skill(call: CallbackQuery):
-        for item in get_skill_from_parsing(days, months, years, '17'):
-            await message.answer(item) 
 
     # @dp.callback_query_handler(skills_callback.filter(type='character'))
     # async def bot_get_skill(call: CallbackQuery):

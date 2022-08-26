@@ -81,12 +81,13 @@ async def bot_zodiac_request(message: types.Message):
     await message.answer(text)
 
 
-dp.message_handler(text=f'Скорпион ♏️')
+@dp.message_handler(text=f'Скорпион ♏️')
 async def bot_zodiac_request(message: types.Message):
     text = get_today_horoscope('scorpio')
     await message.answer(text)
 
-dp.message_handler(text=f'Стрелец ♐️')
+
+@dp.message_handler(text=f'Стрелец ♐️')
 async def bot_zodiac_request(message: types.Message):
     text = get_today_horoscope('sagittarius')
     await message.answer(text)
