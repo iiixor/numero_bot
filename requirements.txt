@@ -1,4 +1,9 @@
-aiogram==2.7
-aiohttp==3.6.2
-aioredis==1.3.1
+aiogram
+aiohttp
+aioredis
 python-dotenv
+requests
+bs4
+lxml
+fake-useragent
+grequests
