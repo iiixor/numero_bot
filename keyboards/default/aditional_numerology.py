@@ -72,4 +72,3 @@ zodiacs = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True
 )
-

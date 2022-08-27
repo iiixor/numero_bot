@@ -11,6 +11,8 @@ async def bot_help(message: types.Message):
     text = [
         'Список команд: ',
         '/start - Начать диалог',
-        '/help - Получить справку'
+        '/help - Получить справку',
+        '/menu - Перейти в главное меню',
+        '/info - Получить информацию о боте'
     ]
     await message.answer('\n'.join(text))

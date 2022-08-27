@@ -16,16 +16,12 @@ async def bot_start(message: types.Message):
     # reply_markup=menu
     # menu указывается в keyboards->default->menu
     # gif = 'media/space.gif'
-    text = [
-    f'Здравствуйте, {message.from_user.full_name} 👋',
-    f'Рады приветсвовать вас в <i>нумерологическом боте</i>!',
-    ]
+    text = f'<b>Вселенский</b> приветсвует Вас, {message.from_user.full_name} 👋'
     # await message.answer_animation(types.InputFile(gif))
-    await message.answer('\n'.join(text), reply_markup=menu)
+    await message.answer(text, reply_markup=menu)
 
 
 # @dp.message_handler()
 # async def bot_delete(message: types.Message):
 #     if message.from_user.id == (await bot.me).id:
 #         await message.delete()
-    

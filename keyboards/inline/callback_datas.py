@@ -17,4 +17,6 @@ choice_callback = CallbackData("choice", "type")
 
 skills_callback = CallbackData('skill', 'type')
 
+subscribe_callback = CallbackData('subscribe','type')
+
 # то же почти везде копи-паст)))))
