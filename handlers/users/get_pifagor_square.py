@@ -22,7 +22,8 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Характер')
 async def bot_data_request(message: types.Message):
-    print(message.text)
+    # for i in range(1,7):
+    #     await bot.delete_message(message.from_user.id, message.message_id - i)
     for item in get_skill_from_parsing('1'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -30,14 +31,12 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Энергия')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('2'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
 
 @dp.message_handler(text=f'Интерес')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('3'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -45,7 +44,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Здоровье')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('4'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -53,7 +51,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Логика, Интуиция')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('5'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -61,7 +58,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Труд')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('6'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -69,7 +65,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Удача')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('7'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -77,7 +72,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Чувство долга')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('8'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -85,14 +79,12 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Память')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('9'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
 
 @dp.message_handler(text=f'Целеустремленность')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('10'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -100,7 +92,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Семья')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('11'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -108,7 +99,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Стабильность')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('12'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -116,7 +106,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Самоценка')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('13'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -124,7 +113,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Материальная независимость')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('14'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -132,7 +120,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Талант')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('15'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -140,7 +127,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Темеперамент')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('16'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -148,7 +134,6 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler(text=f'Духовность')
 async def bot_data_request(message: types.Message):
-    print(message.text)
     for item in get_skill_from_parsing('17'):
         await message.answer(item)
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
@@ -157,6 +142,9 @@ async def bot_data_request(message: types.Message):
 
 @dp.message_handler()
 async def bot_pif_square(message: types.Message):
+    # global msg_counter
+    # msg_counter=0
+    # print(msg_counter)
     date_for_parsing = message.text
     date_for_parsing  = date_for_parsing.split('.')
     try:
