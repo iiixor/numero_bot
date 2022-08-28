@@ -140,8 +140,9 @@ async def bot_data_request(message: types.Message):
 
 
 
-@dp.message_handler()
+@dp.message_handler(text_contains = ".")
 async def bot_pif_square(message: types.Message):
+    await message.answer(f'Формирую квадрат Пифагора...')
     # global msg_counter
     # msg_counter=0
     # print(msg_counter)
@@ -156,7 +157,9 @@ async def bot_pif_square(message: types.Message):
     text = ''
     for item in get_pifagor(days, months, years):
         text = text + f'{item}' + '\n'
+    # await message.delete()
     await message.answer(text)
+    await bot.delete_message(message.from_user.id, message.message_id+1)
     # await message.answer('Хотите получить данные по показателям?', reply_markup=choice_buttons)
 
 

@@ -15,7 +15,7 @@ from .get_pifagor_square import dp
 # from .switch_language import dp
 # from .review import dp
 # from .price import dp
-#from .echo import dp
+from .echo import dp
 
 
 # тут так скажем подключаем все хэндлеры, которые мы прописали в этой дир-и
