@@ -159,16 +159,19 @@ async def bot_data_request(message: types.Message):
 async def bot_pif_square(message: types.Message):
     date_for_parsing = message.text
     date_for_parsing  = date_for_parsing.split('.')
-    days = date_for_parsing[0]
-    months = date_for_parsing[1]
-    years = date_for_parsing[2]
+    try:
+        days = date_for_parsing[0]
+        months = date_for_parsing[1]
+        years = date_for_parsing[2]
+    except IndexError:
+        await message.answer(f'<b>Неверный формат</b>\nПоробуйте ввести дату еще раз')
     text = ''
     for item in get_pifagor(days, months, years):
         text = text + f'{item}' + '\n'
     await message.answer(text)
     # await message.answer('Хотите получить данные по показателям?', reply_markup=choice_buttons)
 
-    
+
     await message.answer('Выберете один из показателей:', reply_markup=aditional_numerology)
 
 
