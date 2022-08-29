@@ -6,7 +6,7 @@ from loader import dp
 # @dp.message_handler(content_types = types.ContentTypes.PHOTO)
 
 @dp.message_handler()
-async def bot_echo(message: types.Message):
+async def unknown_msg(message: types.Message):
     await message.answer(f'К сожалению, я не знаю такой команды')
 
     # оформить, как ответ на конретное сообщение
