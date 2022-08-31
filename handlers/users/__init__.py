@@ -1,5 +1,5 @@
-from .help import dp
-from .start import dp
+from .command_help import dp
+from .command_start import dp
 from .command_menu import dp
 from .command_info import dp
 from .personal_cabinet import dp
@@ -15,7 +15,7 @@ from .get_pifagor_square import dp
 # from .switch_language import dp
 # from .review import dp
 # from .price import dp
-#from .echo import dp
+from .unknown_msg import dp
 
 
 # тут так скажем подключаем все хэндлеры, которые мы прописали в этой дир-и
