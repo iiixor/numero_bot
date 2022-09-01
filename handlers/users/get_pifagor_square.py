@@ -125,7 +125,7 @@ async def bot_data_request(message: types.Message):
     # await message.answer('Выберете один из показателей:', reply_markup=skills_buttons)
 
 
-@dp.message_handler(text=f'Темеперамент')
+@dp.message_handler(text=f'Темперамент')
 async def bot_data_request(message: types.Message):
     for item in get_skill_from_parsing('16'):
         await message.answer(item)
