@@ -34,7 +34,7 @@ aditional_numerology = ReplyKeyboardMarkup(
         ],
         [
             KeyboardButton(text=f'Талант'),
-            KeyboardButton(text=f'Темеперамент')
+            KeyboardButton(text=f'Темперамент')
         ],
         [
             KeyboardButton(text=f'Духовность')

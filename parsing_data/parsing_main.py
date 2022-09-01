@@ -55,7 +55,7 @@ def get_skill_from_parsing(skill_number):
         days = f.readline()
         months = f.readline()
         years = f.readline()
-        
+
     days = days.replace('\n','')
     days = days.replace(',','')
     months = months.replace('\n','')
@@ -71,6 +71,66 @@ def get_skill_from_parsing(skill_number):
     responce = requests.get(link).text
     soup = BeautifulSoup(responce, 'lxml')
 
+
+    block = soup.find('div', class_ = 'pythagoras-square-table')
+
+    values = block.find_all('td')
+
+    block_2 = soup.find('div', class_= 'pythagoras-square')
+
+    values_2 = block_2.find_all('p')
+
+
+    if block_2.find('div', id = 'psn2') == None:
+        character = values_2[0:5] #Характер
+        interest  = values_2[5:6] #Интерес
+        health  = values_2[6:7] #Здоровье
+        logic = values_2[7:8] #Логика, Интуиция
+        labour = values_2[8:9] #Труд
+        luck = values_2[9:10] #Удача
+        duty = values_2[10:11] #Чувство долга
+        memory = values_2[11:12] #Память
+        сommitment = values_2[12:15] #Целеустремленность
+        family = values_2[15:18] #Семья
+        stability = values_2[18:21] #Стабильность
+        self_esteem = values_2[21:24] #Самоценка
+        material_independence = values_2[24:27] #Материальная независимость
+        talant =  values_2[27:35] #Талант
+        tempepament = values_2[35:38] #Темеперамент
+        spirit = values_2[38:45] #Духовность
+        energy = interest
+    else:
+        character = values_2[0:5] #Характер
+        energy = values_2[5:10] #Энергия
+        interest  = values_2[10:11] #Интерес
+        health  = values_2[11:12] #Здоровье
+        logic = values_2[12:13] #Логика, Интуицияч
+        labour = values_2[13:14] #Труд
+        luck = values_2[14:15] #Удача
+        duty = values_2[15:16] #Чувство долга
+        memory = values_2[16:17] #Память
+        сommitment = values_2[18:21] #Целеустремленность
+        family = values_2[21:24] #Семья
+        stability = values_2[24:27] #Стабильность
+        self_esteem = values_2[27:30] #Самоценка
+        material_independence = values_2[30:33] #Материальная независимость
+        talant =  values_2[33:41] #Талант
+        tempepament = values_2[41:44] #Темеперамент
+        spirit = values_2[44:51] #Духовность
+
+
+    all_skills = {}
+
+    values_in_tg = []
+    # values_in_tg.append(f'<b>{title}</b>\n')
+
+    for value in values:
+
+        skill = value.find('b').text
+        data = value.text.replace(skill, '')
+        # print(f'\n{skill} - {data}')
+        values_in_tg.append(f'<b>{skill}</b> - <i>{data}</i>')
+
     # print_skills = input('Хотите получить данные по показателям?[Да/Нет]')
 
     # print_skills = print_skills.capitalize()
@@ -78,29 +138,26 @@ def get_skill_from_parsing(skill_number):
 
     # if print_skills.capitalize() == 'Да':
 
-    block_2 = soup.find('div', class_= 'pythagoras-square')
-
-    values_2 = block_2.find_all('p')
 
     all_skills = {}
-
-    character = values_2[0:5] #Характер
-    energy = values_2[5:10] #Энергия
-    interest  = values_2[10:11] #Интерес
-    health  = values_2[11:12] #Здоровье
-    logic = values_2[12:13] #Логика, Интуиция
-    labour = values_2[13:14] #Труд
-    luck = values_2[14:15] #Удача
-    duty = values_2[15:16] #Чувство долга
-    memory = values_2[16:17] #Память
-    сommitment = values_2[18:21] #Целеустремленность
-    family = values_2[21:24] #Семья
-    stability = values_2[24:27] #Стабильность
-    self_esteem = values_2[27:30] #Самоценка
-    material_independence = values_2[30:33] #Материальная независимость
-    talant =  values_2[33:41] #Талант
-    tempepament = values_2[41:44] #Темеперамент
-    spirit = values_2[44:50] #Духовность
+    #
+    # character = values_2[0:5] #Характер
+    # energy = values_2[5:10] #Энергия
+    # interest  = values_2[10:11] #Интерес
+    # health  = values_2[11:12] #Здоровье
+    # logic = values_2[12:13] #Логика, Интуиция
+    # labour = values_2[13:14] #Труд
+    # luck = values_2[14:15] #Удача
+    # duty = values_2[15:16] #Чувство долга
+    # memory = values_2[16:17] #Память
+    # сommitment = values_2[18:21] #Целеустремленность
+    # family = values_2[21:24] #Семья
+    # stability = values_2[24:27] #Стабильность
+    # self_esteem = values_2[27:30] #Самоценка
+    # material_independence = values_2[30:33] #Материальная независимость
+    # talant =  values_2[33:41] #Талант
+    # tempepament = values_2[41:44] #Темеперамент
+    # spirit = values_2[44:50] #Духовность
 
     all_skills['1'] = character
     all_skills['2'] = energy
@@ -158,14 +215,88 @@ def get_skill_from_parsing(skill_number):
         items_for_tg.append(f'{item.text}')
 
     # for item in all_skills[skill_number]:
-    #     print(f'{item.text}\n')
+        # print(f'{item.text}\n')
 
 
 
-    print(f'{link} \n')
+    # print(f'{link} \n')
 
     # print(all_skills[choise_done])
 
     # print(items_for_tg)
 
     return items_for_tg
+
+def get_skill_from_parsing_2(days, months, years):
+
+
+    import requests
+    import fake_useragent
+    from bs4 import BeautifulSoup
+
+    link = f"https://v-kosmose.com/numerologiya/kvadrat-pifagora/?days={days}&month={months}&years={years}"
+    responce = requests.get(link).text
+    soup = BeautifulSoup(responce, 'lxml')
+    block_2 = soup.find('div', class_= 'pythagoras-square').text
+    block_2 = block_2.split('\n')
+    # print(block_2)
+    for line in block_2:
+        print(line)
+
+    # block_2 = block_2.split('\t')
+    # print(block_2)
+    # with open(f'all_data/{days} {months} {years}.txt','w') as file:
+    #     block_2 = block_2.split('\n')
+    #     # file.write(block_2)
+    #     # print(f'{block_2}')
+
+    i = 0
+
+    for i in range(87):
+        block_2.pop(0)
+
+    i = 0
+
+    rez = []
+    rez_2 = []
+
+    for line in block_2:
+        if line == '\t':
+            continue
+        if line == '':
+            continue
+        if line == ' ':
+            continue
+        if line == '  ':
+            continue
+        if line == line.upper():
+            rez.append(line)
+
+        rez_2.append(line)
+            # print(line)
+            # print(block_2[i:i+5])
+        i+=1
+
+    # print(rez)
+    print(rez_2)
+    for line in rez:
+        if line in rez_2:
+            i = rez_2.index(line)
+            # print(rez_2[i:i+4])
+    responce = requests.get(link).text
+    soup = BeautifulSoup(responce, 'lxml')
+
+    block_2 = soup.find('div', class_= 'pythagoras-square')
+    values_2 = block_2.find_all('p')
+
+    values = block_2.find_all('td')
+
+    for value in values:
+        skill = value.find('b').text
+        data = value.text.replace(skill, '')
+        print(f'\n{skill} - {data}')
+        # values_in_tg.append(f'<b>{skill}</b> - <i>{data}</i>')
+
+    # print(values)
+
+# get_skill_from_parsing_2('28','02', '2002')
