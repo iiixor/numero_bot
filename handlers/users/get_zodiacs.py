@@ -10,6 +10,56 @@ from parsing_data.zodiac_parsing import *
 from keyboards.default import aditional_numerology
 from keyboards.default.aditional_numerology import *
 
+# # 
+# #
+# #
+#
+# from datetime import datetime #библиотека для работы с датами
+# #создаем класс для даты последнего юза
+# class previousDate:
+#
+#     #устанавливаем нереальную дату для инициализации
+#     def __init__(self, Date = datetime(1900,1,1,1,1,1)):
+#          self._Date = Date
+#
+#     # getter method
+#     def get_Date(self):
+#         return self._Date
+#
+#     # setter method
+#     def set_Date(self, value):
+#         self._Date = value
+#
+# #создаем переменную для проверки доступа к Бонусу
+# def square_Access(prev, cur):
+#     access = False
+#     #сравниваем сколько прошло времени с последнего юза
+#     if (cur - prev._Date).total_seconds() > 86400: # 86400 секунд = 24 часа
+#         access = True
+#         #в случае, если прошло более 24 часов, устанавливаем новую последнюю дату
+#         prev.set_Date(cur)
+#     return access
+#
+# prevDate = previousDate()
+#
+# #отправляем в нашу переменную доступа объект последней даты и текущую дату
+# if (square_Access(prevDate, datetime.now())):
+#     FSM_square()
+#
+#     async def bonus(message: types.Message):
+#     con = sqlite3.connect("users.db")
+#     cur = con.cursor()
+#     user = message.from_user.id
+#     sql = "UPDATE ids SET balance = balance + ? \
+#     WHERE user_id = ?"
+#     val = (15, user)
+#     cur.execute(sql, val)
+#     con.commit()
+#     await bot.send_message(message.chat.id, "Вам выдан бонус в качестве 15 монеток")
+#     cur.close()
+# #
+# #
+# #
 
 # @dp.message_handler ловит только сообщение 'Получить информацию'
 @dp.message_handler(text=f'Посмотреть гороскоп ☯️')

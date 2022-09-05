@@ -71,17 +71,23 @@ class Database:
         return self.execute("SELECT COUNT(*) FROM users;", fetchone=True)
 
     def update_email(self, email, id):
-        sql = "UPDATE users SET email=? WHERE id=?"                #ненужня функция
+        sql = "UPDATE users SET email=? WHERE id=?"                #ненужнaя функция
         return self.execute(sql, parameters=(email, id), commit=True)
 
+    # def square_count(self, FSM_square):
+    #     sql = "INSERT INTO users (FSM_square) VALUES (%s)"
+    #     parameters = (FSM_square)
+    #     return self.execute(sql, parameters=(FSM_square), commit=True)
+
     def square_count(self, user_id, FSM_square):
-        sql = "UPDATE users SET FSM_square+=1 WHERE user_id=?"
-        return self.execute(sql, parameters=(FSM_square, user_id), commit=True)
+        sql = "UPDATE users SET FSM_square=? WHERE user_id=?"
+        parameters = (user_id, FSM_square)
+        return self.execute(sql, parameters=(user_id, FSM_square), commit=True)
 
     def horoscope_count(self, user_id, FSM_horoscope):
-        sql = "UPDATE users SET FSM_horoscope+=1 WHERE user_id=?"
-        return self.execute(sql, parameters=(FSM_horoscope, user_id), commit=True)
-
+        sql = "UPDATE users SET FSM_horoscope=? WHERE user_id=?"
+        return self.execute(sql, parameters=(user_id, FSM_horoscope), commit=True)
+        
     # def delete_users(self):
     #     self.execute("DELETE FROM users WHERE True") #delete everything
 

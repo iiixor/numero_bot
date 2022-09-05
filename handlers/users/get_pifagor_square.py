@@ -8,11 +8,32 @@ from filters.emoji import *
 from parsing_data.parsing_main import *
 from keyboards.default import aditional_numerology
 
+import sqlite3
+from utils.db_api.sqlite import Database
+
+db = Database()
 
 # @dp.message_handler ловит только сообщение 'Получить информацию'
 @dp.message_handler(text=f'Посмотреть квадрат пифагора ⚛️')
 async def bot_data_request(message: types.Message):
     text = f'Введите дату рождения в формате:\n\n<b>День.Месяц.Год</b>\n\n<i>Например: 29.05.1980</i>'
+    # if: проверка по базе если 2 и больше то блочит доступ ссылка на оплату
+    # try:
+    #     db.square_count(user_id=message.from_user.id, FSM_square)
+    # except sqlite3.IntegrityError as err:
+    #     print(err)
+#
+#
+#
+
+sql.execute("SELECT FSM_square FROM user_id")
+if sql.fetchone() > 2 :
+# пропускает по коду дальше
+async def bot_data_request(message: types.Message):
+    text = f'Необходимо оформить подписку для продолжения'
+
+
+
     # в переменную photo присваиваем фото(как абсолютный путь), которое в дальнешем будем отправлять
     # методом message.answer_photo отправляем фото и передаем туда photo
     # методом message.answer отправляем текст и передаем туда text
