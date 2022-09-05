@@ -3,7 +3,7 @@ from .command_start import dp
 from .command_menu import dp
 from .command_info import dp
 from .personal_cabinet import dp
-from .subscribe import dp
+# from .subscribe import dp
 from .get_zodiacs import dp
 from .get_pifagor_square import dp
 # from .get_zodiacs import dp
